@@ -1,8 +1,8 @@
-# MCP-based Metadata Assistant for Slack 🤖
+# MCP-based Metadata Assistant for Slack
 
 A Slack bot that provides real-time access to your Alation enterprise metadata catalog using the Model Context Protocol (MCP) and AWS Bedrock.
 
-## 🚀 Overview
+##  Overview
 
 This bot integrates with Slack via Socket Mode and uses a specialized MCP server to fetch live metadata from Alation. It provides comprehensive data governance information including table descriptions, ownership, lineage, and data classifications.
 
@@ -16,14 +16,14 @@ This bot integrates with Slack via Socket Mode and uses a specialized MCP server
 - **Slack Socket Mode**: Secure connection without needing public endpoints or webhooks
 - **Production-Ready**: No local database or vector store required - Alation is the single source of truth
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Python 3.10+
 - Alation instance with API access
 - AWS Account with Bedrock access
 - Slack App with Socket Mode enabled
 
-## ⚙️ Setup & Configuration
+##  Setup & Configuration
 
 ### 1. Environment Variables
 Create a `.env` file in the root directory:
@@ -63,7 +63,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 🏃 Running the Bot
+##  Running the Bot
 
 For detailed setup and usage, see [docs/DOCUMENTATION.md](./docs/DOCUMENTATION.md).
 
@@ -97,7 +97,7 @@ Ask your bot questions like:
 - "What tables use the orders table?"
 - "Show me the lineage for customer_summary"
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 slack-rag-bot/
@@ -127,7 +127,7 @@ slack-rag-bot/
 └── ARCHITECTURE.md                # Technical architecture
 ```
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 - **Framework**: [FastAPI](https://fastapi.tiangolo.com/), [Slack Bolt for Python](https://slack.dev/bolt-python/)
 - **LLM**: [AWS Bedrock (Claude 3)](https://aws.amazon.com/bedrock/)
@@ -135,7 +135,7 @@ slack-rag-bot/
 - **Protocol**: [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
 - **HTTP Client**: [Requests](https://requests.readthedocs.io/) for Alation API
 
-## 🛠️ MCP Tools
+##  MCP Tools
 
 The Alation MCP server exposes 6 tools to the LLM:
 
@@ -146,12 +146,12 @@ The Alation MCP server exposes 6 tools to the LLM:
 5. **get_column_metadata** - Get column types and classifications
 6. **get_lineage** - Get upstream/downstream dependencies
 
-## 📚 Documentation
+##  Documentation
 
 - **[docs/DOCUMENTATION.md](./docs/DOCUMENTATION.md)** - Complete setup, usage, and development guide
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Technical architecture overview
 
-## 🔒 Security & Governance
+##  Security & Governance
 
 - **Read-Only**: All operations are read-only, no data modifications
 - **User Context**: Respects Alation's access control policies
@@ -159,7 +159,7 @@ The Alation MCP server exposes 6 tools to the LLM:
 - **Audit Trail**: All API calls logged for compliance
 - **Data Classification**: Automatically identifies sensitive data (PII, PHI, FINANCIAL)
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 See [docs/DOCUMENTATION.md](./docs/DOCUMENTATION.md#troubleshooting) for common issues and solutions.
 
@@ -168,12 +168,6 @@ See [docs/DOCUMENTATION.md](./docs/DOCUMENTATION.md#troubleshooting) for common 
 - Check MCP server is running on port 8000
 - Ensure Slack tokens are configured correctly
 - Verify AWS Bedrock access in your region
-
-## 🤝 Contributing
-
-This is an internal enterprise tool. For questions or improvements, contact the platform engineering team.
-
-## 📄 License
 
 Internal use only. Proprietary.
 
