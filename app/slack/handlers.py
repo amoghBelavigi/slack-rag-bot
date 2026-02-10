@@ -43,12 +43,22 @@ def handle_rag_request(event: dict, client, say) -> None:
         
         # Get answer from RAG engine
         response = rag_engine.answer(question, history)
-        say(response.answer, thread_ts=thread_ts)
+
+        # Use client.chat_postMessage directly to guarantee thread reply
+        # (say() can sometimes post as a top-level message)
+        client.chat_postMessage(
+            channel=event["channel"],
+            text=response.answer,
+            thread_ts=thread_ts
+        )
         
     except Exception as e:
         logger.error(f"RAG Error: {e}", exc_info=True)
-        say("❌ Sorry, I encountered an error while processing your request.", 
-            thread_ts=thread_ts)
+        client.chat_postMessage(
+            channel=event["channel"],
+            text="Sorry, I encountered an error while processing your request.",
+            thread_ts=thread_ts
+        )
 
 
 def _get_thread_history(client, event: dict) -> str:
